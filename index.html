@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>CalCulator</title>
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width,intial-scale=1.0" />
+
+    <style type="text/css" media="all">
+
+      * {
+
+        margin: 0px;
+
+        padding: 0px;
+
+      }
+
+      #wrapper {
+
+        height: 100vh;
+
+        width: 100vw;
+
+        background-color: black;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+
+      }
+
+      #input {
+
+        width: 100%;
+
+        height: 35%;
+
+        color: white;
+
+        font-size: 40px;
+
+        text-align: right;
+
+        overflow-y: hidden;
+
+        overflow-x: auto;
+
+        padding-top: 35%;
+
+        font-weight: bold;
+
+        padding-right: 20px;
+
+        box-sizing: border-box;
+
+        font-family: 'Poppins', sans-serif;
+
+      }
+
+      #btn-container {
+
+        width: 100%;
+
+        height: 65%;
+
+        display: column;
+
+        column-count: 4;
+
+        padding: 20px;
+
+        box-sizing: border-box;
+
+      }
+
+      .btn {
+
+        display: inline-block;
+
+        height: 65px;
+
+        width: 65px;
+
+        margin: 7px;
+
+        border-radius: 50%;
+
+        box-sizing: border-box;
+
+        background-color: #212121;
+
+        box-sizing: border-box;
+
+        text-align: center;
+
+        padding: 10px;
+
+        font-size: 33px;
+
+        color: white;
+
+        font-family: 'Poppins', sans-serif;
+
+        transition-property: scale, background-color;
+
+        transition-timing-function: ease;
+
+      }
+
+      .sp {
+
+        background-color: #383838;
+
+        color: white;
+
+      }
+
+      .equ {
+
+        background-color: #444dff;
+
+      }
+
+      .btn:active {
+
+        transform: scale(0.95);
+
+        background-color: #ff6d08;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+
+      <div id="input"></div>
+
+      <div id="btn-container">
+
+        <span id="clear" onclick="clean()" class="btn sp">C</span>
+
+        <span onclick="append(7)" class="btn">7</span>
+
+        <span onclick="append(4)" class="btn">4</span>
+
+        <span onclick="append(1)" class="btn">1</span>
+
+        <span onclick="append(0),append(0)" class="btn">00</span>
+
+        <span onclick="append('%')" class="btn sp">%</span>
+
+        <span onclick="append(8)" class="btn">8</span>
+
+        <span onclick="append(5)" class="btn">5</span>
+
+        <span onclick="append(2)" class="btn">2</span>
+
+        <span onclick="append(0)" class="btn">0</span>
+
+        <span onclick="del()" class="btn sp">&lt;</span>
+
+        <span onclick="append(9)" class="btn">9</span>
+
+        <span onclick="append(6)" class="btn">6</span>
+
+        <span onclick="append(3)" class="btn">3</span>
+
+        <span onclick="append('.')" class="btn">•</span>
+
+        <span onclick="append('/')" class="btn sp">÷</span>
+
+        <span onclick="append('*')" class="btn sp">×</span>
+
+        <span onclick="append('-')" class="btn sp">-</span>
+
+        <span onclick="append('+')" class="btn sp">+</span>
+
+        <span class="btn equ" onclick="result()">=</span>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" charset="utf-8">
+
+      let input = document.getElementById("input");
+
+      let clear = document.getElementById("clear");
+
+      function result() {
+
+        if (input.innerText != "") {
+
+          try {
+
+            input.innerText = eval(input.innerText);
+
+          } catch (e) {
+
+            alert("Invalid Expression🚫");
+
+          }
+
+        }
+
+      }
+
+      function clean() {
+
+        if (input.innerText == "") {
+
+        } else {
+
+          input.innerText = "";
+
+        }
+
+      }
+
+      function append(val) {
+
+        input.innerText += val;
+
+      }
+
+      function del() {
+
+        let val = "";
+
+        if (input.innerText.length != 0) {
+
+          for (let i = 0; i < input.innerText.length - 1; i++) {
+
+            val += input.innerText[i];
+
+          }
+
+          input.innerText = val;
+
+        }
+
+      }
+
+    </script>
+
+  </body>
+
+</html>
+
